@@ -11,9 +11,13 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
     <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8084" doc:name="HTTP Listener Configuration"/>
     <db:mysql-config name="MySQL_Configuration" host="mudb.mulesoft-training.com" port="3306" user="mule" password="mule" database="training" doc:name="MySQL Configuration"/>
-    <flow name="apadv-maven-projectFlow">
+    <flow name="messageFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/message" allowedMethods="GET" doc:name="HTTP"/>
-        <set-payload value="#[Message!]" doc:name="Set Payload"/>
+        <set-payload value="#['Message!']" doc:name="Set Payload"/>
+    </flow>
+    <flow name="accountsFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
+        <set-payload value="#['welcome!! This is account Flow']" doc:name="Set Payload"/>
     </flow>
     <flow name="mavenFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/flights" allowedMethods="GET" doc:name="HTTP"/>
