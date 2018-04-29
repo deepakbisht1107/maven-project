@@ -29,7 +29,7 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
     </flow>
     <flow name="getInventoryStatusFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/inventory" allowedMethods="GET" doc:name="HTTP" metadata:id="0db06559-7382-45fa-a1c8-e4156c9738bd"/>
-        <set-payload value="{&quot;message &quot; : &quot; This Message is coming from Inventory Flow&quot;}
+        <set-payload value="#[{&quot;message &quot; : &quot; This Message is coming from Inventory Flow&quot;}]
 " mimeType="application/json" doc:name="Set Payload"/>
     </flow>
 </mule>

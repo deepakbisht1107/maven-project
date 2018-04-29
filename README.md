@@ -1,7 +1,2 @@
-# maven-project
-# maven-project
-# maven-project
-# maven-project
-# maven-project
-# maven-project
-# How to run Project
+#How to Run the Project
+
